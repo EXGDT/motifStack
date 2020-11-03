@@ -25,7 +25,7 @@ matalignOut2dist <- function(align){
     "align must be output of matalign"=
       all(c("motif1", "motif2", "distance") %in% colnames(align)))
   d <- align[, c("motif1", "motif2", "distance")]
-  motifs <- unique(c(align$motif1, align$motif2))
+  motifs <- levels(unique(align$motif1,align$motif2))
   d <- matrix(NA, nrow = length(motifs), ncol = length(motifs))
   rownames(d) <- colnames(d) <- motifs
   rownames(align) <- paste(align$motif1, align$motif2)
